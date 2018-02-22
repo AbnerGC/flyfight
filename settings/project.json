@@ -36,11 +36,11 @@
       true
     ]
   ],
-  "design-resolution-height": 640,
-  "design-resolution-width": 960,
+  "design-resolution-height": 800,
+  "design-resolution-width": 400,
   "excluded-modules": [],
   "fit-height": true,
-  "fit-width": false,
+  "fit-width": true,
   "group-list": [
     "Default",
     "Airplane",
@@ -50,10 +50,15 @@
   ],
   "simulator-orientation": false,
   "simulator-resolution": {
-    "height": 640,
-    "width": 960
+    "height": 800,
+    "width": 400
   },
   "start-scene": "current",
-  "use-customize-simulator": false,
-  "use-project-simulator-setting": false
+  "use-customize-simulator": true,
+  "use-project-simulator-setting": false,
+  "cocos-analytics": {
+    "enable": false,
+    "appID": "13798",
+    "appSecret": "959b3ac0037d0f3c2fdce94f8421a9b2"
+  }
 }

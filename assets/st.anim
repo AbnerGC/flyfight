@@ -1,0 +1,41 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "st",
+  "_objFlags": 0,
+  "_rawFiles": null,
+  "_duration": 2.45,
+  "sample": 60,
+  "speed": 1,
+  "wrapMode": 2,
+  "curveData": {
+    "props": {
+      "y": [
+        {
+          "frame": 0,
+          "value": 862
+        },
+        {
+          "frame": 1.0166666666666666,
+          "value": -89
+        }
+      ]
+    },
+    "paths": {
+      "enemy15": {
+        "props": {
+          "y": [
+            {
+              "frame": 0,
+              "value": 510
+            },
+            {
+              "frame": 2.45,
+              "value": -660
+            }
+          ]
+        }
+      }
+    }
+  },
+  "events": []
+}

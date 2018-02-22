@@ -54,13 +54,12 @@ cc.Class({
         return node;
     },
 
-    getNodeToPool: function (pool, compontentName, prefab) {
+    getNodeToPool: function (pool, compontentName, prefab,idx) {
         let node = null;
         if (pool.size() > 0) { // 通过 size 接口判断对象池中是否有空闲的对象
             node = pool.get();
         } else { // 如果没有空闲对象，也就是对象池中备用对象不够时，我们就用 cc.instantiate 重新创建
             if (compontentName != 'Player') {
-                console.log('cccc');
                 this.createPrefabToPool(pool, prefab,idx);
                 node = pool.get();
             }
@@ -92,38 +91,43 @@ cc.Class({
             score: 0
         };
 
-        // this.bgAdId =  cc.audioEngine.play(this.bgAudio,true);
+        this.bgAdId =  cc.audioEngine.play(this.bgAudio,true);
         this.initAllNodePool();
         this.spawnNewPlayer();
-        for (let i = 0; i < 2; i++) {
+        for (let i = 0; i < 3; i++) {
             this.spawnEnemy();
         }
-        this.spawnFlotage();
+
+        for(let i=0;i<2;i++){
+            this.spawnFlotage();
+        }
 
     },
     spawnEnemy: function () {
 
-        let node = this.getNodeToPool(this.enemyPool, 'Enemy', this.sEnemyPrefab);
+        let node = this.getNodeToPool(this.enemyPool, 'Enemy', this.sEnemyPrefab,3);
     },
     spawnFlotage: function () {
 
-        let node = this.getNodeToPool(this.flotagePool, 'mapFlotage', this.FlotagePrefabs[0]);
+        let node = this.getNodeToPool(this.flotagePool, 'mapFlotage', this.FlotagePrefabs[0],2);
     },
     spawnNewPlayer: function () {
+        console.log('spawnNewPlayerspawnNewPlayerspawnNewPlayer',this.curDieCount,this.maxLift);
         if (this.curDieCount < this.maxLift) {
             this.curDieCount++;
             this.lifeCount -= 1;
             this.lifeLabel.string = 'life : ' + this.lifeCount;
             var node = this.getNodeToPool(this.playerPool, 'Player', this.PlayerPrefab);
         } else {
-            console.log('gameover');
             this.isGameover = -1;
             var player = cc.instantiate(this.PlayerPrefab);
             var Enemy = cc.instantiate(this.sEnemyPrefab);
             player.getComponent('Player').disManage();
             Enemy.getComponent('Enemy').disManage();
+            
             cc.audioEngine.stop(this.bgAdId);
             // this.node.destroyAllChildren();
+            console.log('sdhfksdhfkdshfkhsfjhssd');
             cc.director.loadScene('gameover');
         }
     }

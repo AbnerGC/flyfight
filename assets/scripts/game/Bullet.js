@@ -30,7 +30,7 @@ cc.Class({
     },
     
     deleteBullet: function(){
-       // cc.audioEngine.play(this.buttleAudio);
+        cc.audioEngine.play(this.buttleAudio);
         this.player.node.removeChild(this.node);
         this.isFire = false;
     },

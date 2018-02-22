@@ -1,20 +1,21 @@
 {
   "appKey": "",
   "appSecret": "",
+  "encryptJs": true,
   "excludeScenes": [],
   "includeAnySDK": false,
-  "includeSdk": [
-    "anysdk"
-  ],
+  "includeSDKBox": false,
   "inlineSpriteFrames": true,
-  "inlineSpriteFrames_native": true,
+  "inlineSpriteFrames_native": false,
+  "jailbreakPlatform": false,
+  "md5Cache": true,
   "mergeStartScene": false,
   "oauthLoginServer": "",
-  "optimizeHotUpdate": false,
+  "optimizeHotUpdate": true,
   "orientation": {
-    "landscapeLeft": true,
-    "landscapeRight": true,
-    "portrait": false,
+    "landscapeLeft": false,
+    "landscapeRight": false,
+    "portrait": true,
     "upsideDown": false
   },
   "packageName": "org.cocos2d.flyfight",
@@ -22,5 +23,10 @@
   "renderMode": "0",
   "startScene": "f0184f5e-5c10-4538-bd5b-d85dde6fd902",
   "title": "flyfight",
-  "webOrientation": "portrait"
+  "webOrientation": "portrait",
+  "wechatgame": {
+    "appid": "wxa8b0dd564db1e2aa",
+    "orientation": "portrait"
+  },
+  "xxteaKey": "dc1fc028-117d-45"
 }

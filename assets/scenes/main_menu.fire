@@ -564,7 +564,7 @@
       "width": 400,
       "height": 800
     },
-    "_fitWidth": false,
+    "_fitWidth": true,
     "_fitHeight": true
   },
   {

@@ -3,6 +3,8 @@ cc.Class({
     ctor: function () {
         this.pool =  null;
         this.canvas = null;
+        this.x;
+        this.count=0;
     },
     properties: {
         // foo: {
@@ -24,35 +26,30 @@ cc.Class({
     // use this for initialization
     onLoad: function () {
     },
+    getX:function(){
+         console.log('before',this.x);
+         return  this.x = 20 + (cc.random0To1()*500) * Math.ceil(cc.randomMinus1To1());
+    },
+    test:function(){
+        
+       return  cc.place(cc.p(this.getX(),this.node.parent.height+200))
+    },
     init:function(game){
         this.game = game;
         this.node.zIndex = 2;
-        this.node.setPosition(cc.p(20 + (cc.random0To1()*160),this.node.parent.height+200));
-        this.autoFlotage();
+        
+        this.getX();
+        console.log(this.x);
+        this.node.setPosition(cc.p(this.x,this.node.parent.height+200));  
+        this.flotage(8);
     },
     flotage:function(duration){
-        let moving = cc.moveTo(duration, cc.p({x:0,y: -this.node.parent.height + 20 }));
-        let cb = cc.callFunc(this.moveEnd, this);
-        this.node.runAction(cc.repeat(cc.sequence(moving,cb),1));
-    },
-
-    autoFlotage:function(){
-         // 以秒为单位的时间间隔
-        var interval = 5;
-        // 重复次数
-        var repeat = 2;
-        // 开始延时
-        var delay = 1;
-        this.schedule(()=>{
-            // 这里的 this 指向 component
-            console.log('asdasd111');
-            console.log(this);
-            this.flotage(3);
-        },1);
         
-     
-    },
+        let moving = cc.moveTo(duration, cc.p({x:this.x,y: -this.node.parent.height + 20 }));
     
+        let cb = cc.callFunc(this.moveEnd, this);
+        this.node.runAction(cc.repeatForever(cc.sequence(moving,this.test())));
+    },    
 
     moveEnd: function(){
           this.node.destroy();
